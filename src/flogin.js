@@ -44,7 +44,6 @@
           var token   = response.accessToken;
 
           FB.api('/me?access_token='+token, function(user) {
-            console.log(user);
             var email;
             if(email = user.email) {
               $.ajax({
