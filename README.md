@@ -1,6 +1,6 @@
 # flogin.js
 
-## Stupidly simply facebook login as a jQuery plugin
+## Stupidly simple facebook login as a jQuery plugin
 
 ### Usage
 
