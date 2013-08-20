@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Flogin by gary-rafferty</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Flogin</h1>
+        <p>Stupidly simple facebook login as a jQuery plugin</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/gary-rafferty/flogin" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/gary-rafferty/flogin/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/gary-rafferty/flogin/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="floginjs" class="anchor" href="#floginjs"><span class="octicon octicon-link"></span></a>flogin.js</h1>
+
+<h2>
+<a name="stupidly-simple-facebook-login-as-a-jquery-plugin" class="anchor" href="#stupidly-simple-facebook-login-as-a-jquery-plugin"><span class="octicon octicon-link"></span></a>Stupidly simple facebook login as a jQuery plugin</h2>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>Src the plugin, and then invoke it on the element that should trigger Facebook authentication.</p>
+
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'jquery.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'flogin.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span><span class="nt">&gt;</span>
+      <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#login'</span><span class="p">).</span><span class="nx">facebook_login</span><span class="p">({</span>
+          <span class="nx">appId</span><span class="o">:</span> <span class="s1">'YOUR-FACEBOOK-APP-ID'</span><span class="p">,</span>  <span class="err">#</span> <span class="nx">your</span> <span class="nx">facebook</span> <span class="nx">application</span> <span class="nx">id</span>
+          <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">'/sessions/new'</span><span class="p">,</span>      <span class="err">#</span> <span class="nx">where</span> <span class="nx">to</span> <span class="nx">POST</span> <span class="nx">the</span> <span class="nx">response</span> <span class="nx">to</span>
+          <span class="nx">onSuccess</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{},</span>   <span class="err">#</span> <span class="nx">what</span> <span class="nx">to</span> <span class="k">do</span> <span class="nx">on</span> <span class="nx">success</span><span class="p">,</span> <span class="nx">usually</span> <span class="nx">redirect</span>
+          <span class="nx">onError</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{}</span>      <span class="err">#</span> <span class="nx">what</span> <span class="nx">to</span> <span class="k">do</span> <span class="nx">on</span> <span class="nx">error</span>
+          <span class="nx">permissions</span><span class="o">:</span> <span class="s1">'read_stream'</span>      <span class="err">#</span> <span class="nx">what</span> <span class="nx">permissions</span> <span class="nx">you</span> <span class="nx">need</span><span class="p">,</span> <span class="k">default</span> <span class="nx">is</span> <span class="nx">just</span> <span class="nx">email</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'#'</span> <span class="na">id=</span><span class="s">'login'</span><span class="nt">&gt;</span>Login with Facebook<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+
+<table>
+<thead><tr>
+<th>Option</th>
+<th align="center">Required</th>
+<th align="center">Type</th>
+<th align="center">Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>appId</td>
+<td align="center">YES</td>
+<td align="center">String</td>
+<td align="center">''</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td align="center">NO</td>
+<td align="center">String</td>
+<td align="center">/sessions/new</td>
+</tr>
+<tr>
+<td>onSuccess</td>
+<td align="center">NO</td>
+<td align="center">Callback</td>
+<td align="center">console.log([200,'OK'])</td>
+</tr>
+<tr>
+<td>onError</td>
+<td align="center">NO</td>
+<td align="center">Callback</td>
+<td align="center">console.log([500,'Error'])</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td align="center">NO</td>
+<td align="center">String</td>
+<td align="center">'email'</td>
+</tr>
+</tbody>
+</table>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/gary-rafferty">gary-rafferty</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
