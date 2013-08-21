@@ -4,7 +4,7 @@
 
 ### Usage
 
-1. Load jQuery using a <script> tag and pointing the src to the jQuery library.
+1. Load jQuery using a script tag and pointing the src to the jQuery library.
 2. Load the flogin plugin in the same way.
 3. Invoke it on the element that should trigger Facebook authentication.
 
