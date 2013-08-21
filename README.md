@@ -4,7 +4,11 @@
 
 ### Usage
 
-Src the plugin, and then invoke it on the element that should trigger Facebook authentication.
+1. Load jQuery using a <script> tag and pointing the src to the jQuery library.
+2. Load the flogin plugin in the same way.
+3. Invoke it on the element that should trigger Facebook authentication.
+
+NB: The plugin will also load the Facebook JS SDK so you do not need to do this.
 
 ```html
 <!DOCTYPE html>
@@ -39,5 +43,3 @@ Src the plugin, and then invoke it on the element that should trigger Facebook a
 | onSuccess     | NO            | Callback| console.log([200,'OK'])
 | onError       | NO            | Callback| console.log([500,'Error'])
 | permissions   | NO            | String  | 'email'
-
-
