@@ -44,21 +44,19 @@
           var token   = response.accessToken;
 
           FB.api('/me?access_token='+token, function(user) {
-            var email;
-            if(email = user.email) {
-              $.ajax({
-                url: settings.endpoint,
-                data: {user_id: user_id,token: token,email: email},
-                type: 'POST',
-                success: settings.onSuccess(),
-                error: settings.onError()
-              });
-            }
+            $.ajax({
+              url: settings.endpoint,
+              data: {user_id: user_id,token: token,email: user.email},
+              type: 'POST',
+              async: false,
+            }).done(settings.onSuccess());
           });
         } else {
           settings.onError();
         }
       }, {scope: settings.permissions});
+
+      return false; 
     });
   }
 })(jQuery);
